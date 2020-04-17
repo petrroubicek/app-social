@@ -1,7 +1,7 @@
 // VARIABLES
 
 // DEFAULT WIDTH
-$default-min-height: 675px;
+$default-min-height: calc(100vh - 60px);
 $default-max-width: 375px;
 
 // COLORS

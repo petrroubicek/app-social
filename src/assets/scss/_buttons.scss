@@ -56,6 +56,12 @@
     @include button-variant($main-color, transparent, 1px solid, $main-color);
     font-family: "SF UI Display Light";
   }
+  &--dark {
+    background: darken($main-color, 10%);
+  }
+  &--big {
+    min-height: 50px;
+  }
   &--radius {
     @include border-radius(24px);
   }

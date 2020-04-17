@@ -1,25 +1,70 @@
-@import "variables.scss";
+@import "mixins.scss", "variables.scss";
+
+.logo {
+  max-width: 185px;
+  margin: 0px auto;
+
+  &__img {
+    display: inline-block;
+    float: left;
+    margin: 0px 5px 0px 0px;
+    height: 120px;
+  }
+  &__title1 {
+    display: inline-block;
+    float: left;
+    margin: 10px 0px 0px;
+    padding: 4px 12px;
+    font-size: 38px;
+    color: $main-color;
+    background: #fff;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-family: "SF UI Display Bold";
+  }
+  &__title2 {
+    display: inline-block;
+    float: left;
+    margin: 7px 0px 0px;
+    font-size: 41px;
+    letter-spacing: 3px;
+    color: #fff;
+    font-family: "SF UI Display Light";
+  }
+}
 
 .home {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 
-  &__title {
-    margin: 60px 0px 30px;
-    color: $main-color;
-    text-transform: uppercase;
-    font-family: "SF UI Display Medium";
+  &__stats {
+    position: relative;
+    display: inline-block;
+    margin: 40px auto;
+    padding-left: 20px;
+    width: auto;
+    color: #fff;
+    font-family: "SF UI Display Ultralight";
+    line-height: 1.8;
+    font-size: 20px;
+    letter-spacing: 1px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 13px;
+      height: 10px;
+      width: 10px;
+      background: #fff;
+      @include border-radius(100%);
+    }
   }
-  &__description {
-    margin: 0px 0px 40px;
-    line-height: 1.5;
-    color: $minor-color;
-  }
-  &__component-button {
-    margin: 20px 40px;
+
+  &__button {
+    margin: 10px 40px;
     height: 44px;
-  }
-  &__contact-button {
-    margin: 60px 40px 10px;
   }
 }

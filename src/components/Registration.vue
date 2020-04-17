@@ -1,7 +1,7 @@
 <template>
   <div class="registration">
     <!-- TITLE -->
-    <h2 class="registration__title">N steps to earn revenue</h2>
+    <h2 class="registration__title">Jak to funguje?</h2>
 
     <!-- STEP -->
     <div class="registration__steps">
@@ -18,9 +18,9 @@
     <!-- BACK HOME -->
     <button
       type="button"
-      class="registration__back btn btn--primary btn--radius"
+      class="registration__back btn btn--primary btn--radius btn--shadow btn--big"
       @click="showPageFN('Login')"
-    >Přihlásit se</button>
+    >Chci účet</button>
   </div>
 </template>
 

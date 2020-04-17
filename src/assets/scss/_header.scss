@@ -3,8 +3,9 @@
 .header {
   display: flex;
   align-items: center;
+  padding: 0px 15px;
   height: 60px;
-  width: 100%;
+  width: calc(100% - 30px);
   background: $header-bg;
 
   &__title {

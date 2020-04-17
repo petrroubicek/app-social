@@ -1,15 +1,18 @@
 <template>
   <div class="login">
     <!-- REGISTRATION -->
-    <div class="login-content">
-      <p class="login-content__description"></p>
+    <form class="login-content">
+      <p class="login-content__description">Seznamte se s novými přáteli</p>
       <input class="login-content__input" type="text" placeholder="Uživatelské jméno">
       <input class="login-content__input" type="password" placeholder="Heslo">
+      <button type="submit" class="btn btn--primary btn--radius btn--shadow btn--big">
+        Přihlásit se
+      </button>
       <p class="login-content__description">
-        Nemáte ještě účet?
+        Nemáte ještě účet? <br> 
         <a href="#" class="login-content__link">Zaregistrujte ještě dnes!</a>
       </p>
-    </div>
+    </form>
   </div>
 </template>
 

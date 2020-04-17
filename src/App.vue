@@ -1,5 +1,8 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    v-bind:class="{'body--bg-purple' : (currentPage == 'Home'), 'body--bg-gray' : (currentPage != 'Home')}"
+  >
     <!-- HEADER -->
     <Header
       v-if="currentPage != 'Home'"

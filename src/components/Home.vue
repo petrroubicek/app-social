@@ -1,12 +1,17 @@
 <template>
   <div class="home">
     <!-- INTRO -->
-    <h1 class="home__title">VÍTEJTE</h1>
-    <p class="home__description">Výsledné řešení se nachází
-      <br>po kliknutí na konkrétní button.
+    <div class="logo">
+      <img class="logo__img" src="~/public/images/girl-white.png">
+      <h1 class="logo__title1">FREE</h1>
+      <h2 class="logo__title2">CHAT</h2>
+    </div>
+
+    <p class="home__stats">
+      150 dívek online
     </p>
 
-    <!-- TASKS -->
+    <!-- TASKS --
     <button
       type="button"
       class="home__component-button btn btn--primary btn--radius"
@@ -33,25 +38,24 @@
       datas.popUp2.btn1Class, 
       datas.popUp2.btn2Text, 
       datas.popUp2.btn2Class)"
-    >Show popup #2</button>
+    >Show popup #2</button>-->
+    <button
+      type="button"
+      class="home__button btn btn--primary btn--dark btn--radius btn--shadow btn--big"
+      @click="showPageFN('Registration')"
+    >Registrovat se</button>
     
     <button
       type="button"
-      class="home__component-button btn btn--primary btn--radius"
-      @click="showPageFN('Content')"
-    >Show content</button>
-    
-    <button
-      type="button"
-      class="home__component-button btn btn--primary btn--radius"
+      class="home__button btn btn--primary btn--dark btn--radius btn--shadow btn--big"
       @click="showPageFN('Login')"
-    >Show login</button>
+    >Přihlásit se</button>
 
-    <!-- CONTACT -->
+    <!-- CONTACT --
     <a
       href="tel:777556047"
       class="home__contact-button btn btn--primary btn--radius btn--border"
-    >Zavolat řešiteli</a>
+    >Zavolat řešiteli</a>-->
   </div>
 </template>
 
