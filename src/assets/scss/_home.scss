@@ -1,0 +1,25 @@
+@import "variables.scss";
+
+.home {
+  display: flex;
+  flex-flow: column;
+
+  &__title {
+    margin: 60px 0px 30px;
+    color: $main-color;
+    text-transform: uppercase;
+    font-family: "SF UI Display Medium";
+  }
+  &__description {
+    margin: 0px 0px 40px;
+    line-height: 1.5;
+    color: $minor-color;
+  }
+  &__component-button {
+    margin: 20px 40px;
+    height: 44px;
+  }
+  &__contact-button {
+    margin: 60px 40px 10px;
+  }
+}

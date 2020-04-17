@@ -1,0 +1,29 @@
+@import "variables.scss";
+
+body {
+  margin: 0px;
+  height: 100%;
+  counter-reset: step;
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #fcfcfc,  #f5f5f5, #e5e5e5, #dedede, #d6d6d6);
+
+  @media screen and (min-height: $breakpoint-height-xs) {
+    height: 100vh;
+  }  
+}
+
+#app {
+  font-family: "SF UI Display Light";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0px auto;
+  min-height: $default-min-height; 
+  max-width: $default-max-width;
+}

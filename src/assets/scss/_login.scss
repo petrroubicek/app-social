@@ -1,0 +1,15 @@
+@import "variables.scss";
+
+.login-content {
+
+  &__description {
+    color: #333;
+  }
+  &__input {
+    background: #eee;
+    border: 1px solid #aaa;
+  }
+  &__link {
+    color: $main-color;
+  }
+}
