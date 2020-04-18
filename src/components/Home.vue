@@ -7,9 +7,7 @@
       <h2 class="logo__title2">CHAT</h2>
     </div>
 
-    <p class="home__stats">
-      150 dívek online
-    </p>
+    <p class="home__stats">{{getRandomUsers}} dívek online</p>
 
     <!-- TASKS --
     <button
@@ -42,13 +40,13 @@
     <button
       type="button"
       class="home__button btn btn--primary btn--dark btn--radius btn--shadow btn--big"
-      @click="showPageFN('Registration')"
+      @click="goNextFN('Process', selectedComponent)"
     >Registrovat se</button>
     
     <button
       type="button"
       class="home__button btn btn--primary btn--dark btn--radius btn--shadow btn--big"
-      @click="showPageFN('Login')"
+      @click="goNextFN('Login', selectedComponent)"
     >Přihlásit se</button>
 
     <!-- CONTACT --
@@ -64,12 +62,12 @@ export default {
   name: "Home",
   props: {
     selectedComponent: String,
-    lastComponent: String,
-    showPopUpFN: Function,
-    showPageFN: Function
+    goNextFN: Function
   },
   data() {
     return {
+      minUsersOnline: 50,
+      maxUsersOnline: 300,
       datas: {
         popUp1: {
           profileImg: "",
@@ -95,6 +93,11 @@ export default {
         }
       }
     };
+  },
+  computed: {
+    getRandomUsers() {
+      return Math.floor(Math.random() * this.maxUsersOnline) + this.minUsersOnline;
+    }
   }
 };
 </script>

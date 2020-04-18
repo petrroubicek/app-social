@@ -12,9 +12,16 @@
     margin: 0px;
     width: 100%;
     text-align: center;
-    letter-spacing: 4px;
-    font-size: 22px;
+    letter-spacing: 2px;
+    font-size: 20px;
     text-transform: uppercase;
     color: $header-color;
+
+    &--without-l-icon {
+      padding-left: 50px;
+    }
+    &--without-r-icon {
+      padding-right: 50px;
+    }
   }
 }

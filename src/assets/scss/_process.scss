@@ -1,0 +1,94 @@
+@import "mixins.scss", "variables.scss";
+
+.process {
+  display: flex;
+  flex-flow: column;
+  top: 0px;
+  margin: 0px auto;
+  height: 100%;
+  width: 100%;
+  max-width: $content-max-width;
+
+  &__title {
+    margin: 35px 0px 30px;
+    font-family: "SF Pro Text";
+    font-size: 27px;
+    font-weight: bold;
+  }
+
+  &__steps > div:not(:last-of-type) {
+    padding-bottom: 95px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 30px;
+      left: 0px;
+      height: 32px;
+      width: 100%;
+      background: url("./images/arrow.png") center center no-repeat;
+    }
+  }
+  
+  &__continue {
+    margin: 40px 15px 20px; 
+  }
+}
+
+// KROKY
+.step {
+  position: relative;
+  display: flex;
+  padding: 0px 15px;
+
+  &__img {
+    height: auto;
+    max-height: 158px;
+    width: 75px;
+    //@include shadow(#000, 0px, 2px, 6px, 0.3);
+    @include border-radius(7px); 
+  }
+  &__box {
+    margin-left: 30px;
+  }
+  &__title {
+    position: relative;
+    margin: 25px 0px 30px;
+    padding-left: 64px;
+    text-align: left;
+    font-size: 22px;
+    font-family: "SF Pro Text";
+
+    @media (max-width: $breakpoint-mobile-xs) {
+      padding-left: 50px;
+      font-size: 18px;
+    }
+
+    &:before {
+      content: counter(step, decimal);
+      counter-increment: step;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      left: 0px;
+      top: -4px;
+      height: 34px;
+      width: 34px;
+      font-size: 22px;
+      font-family: "SF UI Display Bold";
+      background: $main-color;
+      color: #fff;
+      @include border-radius(100%);
+      @include shadow($shadow-color, 2px, 8px, 20px, 0.3);
+    }
+  }
+  &__link, &__text {
+    text-align: left;
+    display: inline-block;
+    font-size: 14px;
+    font-family: "SF Pro Text";
+    color: #000;
+    line-height: 1.4;
+  }
+}

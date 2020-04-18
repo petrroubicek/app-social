@@ -5,13 +5,14 @@
   flex-flow: column;
   padding: 30px;
 
-  &__description {
-    margin: 20px 0px 20px;
+  &__title {
+    margin: 0px 0px 20px;
     color: #333;
     font-size: 18px;
     line-height: 1.5;
-    font-family: "SF Pro Text";
+    font-family: "SF UI Display Bold";
   }
+
   &__input {
     padding: 16px 20px;
     margin: 0px 0px 20px;
@@ -21,8 +22,16 @@
     background: #f1f1f1;
     border: 1px solid #ddd;
   }
+
+  &__description {
+    margin: 25px 0px 0px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: "SF Pro Text";
+  }
   &__link {
-    margin: 10px 0px 0px;
+    margin: 0px;
     color: $main-color;
   }
 }

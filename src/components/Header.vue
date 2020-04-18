@@ -1,11 +1,32 @@
 <template>
   <header class="header">
-    <button type="button" class="btn btn--icon btn--invert" @click="showBack">
+    <button
+      v-if="selectedComponent != 'Profil'"
+      @click="goBackFN"
+      type="button"
+      class="btn btn--icon btn--invert"
+    >
       <i class="fas fa-chevron-left"></i>
     </button>
-    <h1 class="header__title">{{selectedPage}}</h1>
-    <button type="button" class="btn btn--icon btn--invert" @click="showPageFN('Config')">
-      <i class="fas fa-cogs"></i>
+    <button
+      v-if="selectedComponent == 'Profil'"
+      @click="goNextFN('Home', selectedComponent)"
+      type="button"
+      class="btn btn--icon btn--invert"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <h1
+      v-bind:class="{'header__title--without-l-icon' : (selectedComponent == ''), 'header__title--without-r-icon' : (selectedComponent == 'Process' || selectedComponent == 'Registration' || selectedComponent == 'Login')}"
+      class="header__title"
+    >{{pageTitle(selectedComponent)}}</h1>
+    <button
+      v-if="selectedComponent == 'Profil'"
+      type="button"
+      class="btn btn--icon btn--invert"
+      @click="goNextFN('Home', selectedComponent)"
+    >
+      <i class="fas fa-sign-out-alt"></i>
     </button>
   </header>
 </template>
@@ -15,13 +36,20 @@ export default {
   name: "Header",
   props: {
     selectedComponent: String,
-    selectedPage: String,
-    pastComponent: String,
-    showPageFN: Function
+    goBackFN: Function,
+    goNextFN: Function
   },
   methods: {
-    showBack() {
-      this.selectedComponent = this.pastComponent;
+    pageTitle(page) {
+      if (page === "Process") {
+        return "Registrace";
+      } else if (page === "Registration") {
+        return "Vytvoření účtu";
+      } else if (page === "Login") {
+        return "Přihlásit se";
+      } else if (page === "Profil") {
+        return "Váš profil";
+      }
     }
   }
 };

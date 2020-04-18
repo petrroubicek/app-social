@@ -1,30 +1,29 @@
 <template>
   <div
     id="app"
-    v-bind:class="{'body--bg-purple' : (currentPage == 'Home'), 'body--bg-gray' : (currentPage != 'Home')}"
+    v-bind:class="{'body--bg-purple' : (currentSelectedPage == 'Home'), 'body--bg-gray' : (currentSelectedPage != 'Home')}"
   >
     <!-- HEADER -->
     <Header
-      v-if="currentPage != 'Home'"
-      :selectedComponent="currentPage"
-      :selectedPage="pageName"
-      :pastComponent="lastPage"
+      v-if="currentSelectedPage != 'Home'"
+      :selectedComponent="currentSelectedPage"
+      :goBackFN="goBack"
+      :goNextFN="goNext"
     ></Header>
 
     <!-- CONTENT -->
     <div class="container">
       <!-- HOMEPAGE -->
       <Home
-        v-if="currentPage == 'Home'"
-        :selectedComponent="currentPage"
-        :showPageFN="showPage"
-        :showPopUpFN="showPopUp"
+        v-if="currentSelectedPage == 'Home'"
+        :selectedComponent="currentSelectedPage"
+        :goNextFN="goNext"
       ></Home>
 
-      <!-- POPUP -->
+      <!-- POPUP --
       <PopUp
-        v-if="currentPage == 'PopUp'"
-        :selectedComponent="currentPage"
+        v-if="currentSelectedPage == 'PopUp'"
+        :selectedComponent="currentSelectedPage"
         :profileImg="popUp.profileImg"
         :title="popUp.title"
         :doubleRowTitle="popUp.doubleRowTitle"
@@ -34,25 +33,36 @@
         :btn1Class="popUp.btn1Class"
         :btn2Text="popUp.btn2Text"
         :btn2Class="popUp.btn2Class"
-        :showPageFN="showPage"
+        :changePageFN="changePage"
         :showPopUpFN="showPopUp"
-      ></PopUp>
+      ></PopUp>-->
+      <!-- PROCESS -->
+      <Process
+        v-if="currentSelectedPage == 'Process'"
+        :selectedComponent="currentSelectedPage"
+        :goNextFN="goNext"
+      ></Process>
 
       <!-- REGISTRATION -->
       <Registration
-        v-if="currentPage == 'Registration'"
-        :selectedComponent="currentPage"
-        :selectedPage="pageName"
-        :showPageFN="showPage"
+        v-if="currentSelectedPage == 'Registration'"
+        :selectedComponent="currentSelectedPage"
+        :goNextFN="goNext"
       ></Registration>
 
       <!-- LOGIN -->
       <Login
-        v-if="currentPage == 'Login'"
-        :selectedComponent="currentPage"
-        :selectedPage="pageName"
-        :showPageFN="showPage"
+        v-if="currentSelectedPage == 'Login'"
+        :selectedComponent="currentSelectedPage"
+        :goNextFN="goNext"
       ></Login>
+
+      <!-- PROFIL -->
+      <Profil
+        v-if="currentSelectedPage == 'Profil'"
+        :selectedComponent="currentSelectedPage"
+        :goNextFN="goNext"
+      ></Profil>
     </div>
   </div>
 </template>
@@ -61,16 +71,17 @@
 import Header from "./components/Header";
 import Home from "./components/Home";
 import PopUp from "./components/PopUp";
+import Process from "./components/Process";
 import Registration from "./components/Registration";
 import Login from "./components/Login";
+import Profil from "./components/Profil";
 
 export default {
   name: "App",
   data() {
     return {
-      pageName: "",
-      currentPage: "Home",
-      lastPage: "Home",
+      currentSelectedPage: "Home",
+      lastSelectedPages: [],
       popUp: {
         profileImg: "",
         title: "",
@@ -85,18 +96,14 @@ export default {
     };
   },
   methods: {
-    pageTitle(name) {
-      if (name === "Registration") {
-        this.namePage = "Registrace";
-      } else if (name === "Login") {
-        this.namePage = "Přihlásit se";
-      } else if (name === "Config") {
-        this.namePage = "Konfigurace";
-      }
+    goNext(nextPage, currentPage) {
+      this.currentSelectedPage = nextPage;
+      this.lastSelectedPages.push(currentPage);
     },
-    showPage(page) {
-      this.currentPage = page;
-      this.pageTitle(page);
+    goBack() {
+      let lastIndexPage = this.lastSelectedPages.length - 1;
+      this.currentSelectedPage = this.lastSelectedPages[lastIndexPage];
+      this.lastSelectedPages.splice(-1, 1);
     },
     showPopUp(
       profileImg,
@@ -109,7 +116,7 @@ export default {
       btn2Text,
       btn2Class
     ) {
-      this.showPage("PopUp");
+      this.goNext("PopUp");
       this.popUp.profileImg = profileImg;
       this.popUp.title = title;
       this.popUp.doubleRowTitle = doubleRowTitle;
@@ -125,8 +132,10 @@ export default {
     Header,
     Home,
     PopUp,
+    Process,
     Registration,
-    Login
+    Login,
+    Profil
   }
 };
 </script>

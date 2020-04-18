@@ -2,14 +2,11 @@
   <div class="login">
     <!-- REGISTRATION -->
     <form class="login-content">
-      <p class="login-content__description">Seznamte se s novými přáteli</p>
+      <p class="login-content__title">Seznamte se s novými přáteli</p>
       <input class="login-content__input" type="text" placeholder="Uživatelské jméno">
       <input class="login-content__input" type="password" placeholder="Heslo">
-      <button type="submit" class="btn btn--primary btn--radius btn--shadow btn--big">
-        Přihlásit se
-      </button>
-      <p class="login-content__description">
-        Nemáte ještě účet? <br> 
+      <button @click="goNextFN('Profil', selectedComponents)" type="button" class="btn btn--primary btn--radius btn--shadow btn--big">Přihlásit se</button>
+      <p class="login-content__description">Nemáte ještě účet?
         <a href="#" class="login-content__link">Zaregistrujte ještě dnes!</a>
       </p>
     </form>
@@ -20,7 +17,8 @@
 export default {
   name: "Login",
   props: {
-    showHomeFN: Function
+    selectedComponents: String,
+    goNextFN: Function
   },
   data() {
     return {};

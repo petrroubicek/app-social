@@ -16,6 +16,9 @@ body {
 .body--bg-purple {
   background-image: linear-gradient(to bottom, lighten($main-color, 10%), lighten($main-color, 5%), lighten($main-color, 2%), $main-color, $main-color);
 }
+.hidden {
+  display: none !important;
+}
 
 #app {
   font-family: "SF UI Display Light";

@@ -1,26 +1,34 @@
 <template>
   <div class="registration">
-    <!-- TITLE -->
-    <h2 class="registration__title">Jak to funguje?</h2>
-
-    <!-- STEP -->
-    <div class="registration__steps">
-      <div class="step" v-for="(item, x) in steps" :key="x">
-        <img class="step__img" :src="item.stepImg">
-        <div class="step__box">
-          <h2 class="step__title">{{item.stepTitle}}</h2>
-          <a class="step__link" v-if="item.stepLink" href="#">{{item.stepDescription}}</a>
-          <span class="step__text" v-if="!item.stepLink">{{item.stepDescription}}</span>
-        </div>
+    <!-- REGISTRATION -->
+    <form class="registration-content">
+      <div class="registration-content__gender">
+        <span class="registration-content__description">Vaše pohlaví</span>
+        <input id="registration-sex-man" class="hidden" name="sex" type="radio" value="man">
+        <label for="registration-sex-man" class="registration-content__sex">
+          <i class="fas fa-mars"></i>
+        </label>
+        <input id="registration-sex-woman" class="hidden" name="sex" type="radio" value="woman">
+        <label for="registration-sex-woman" class="registration-content__sex">
+          <i class="fas fa-venus"></i>
+        </label>
       </div>
-    </div>
-
-    <!-- BACK HOME -->
-    <button
-      type="button"
-      class="registration__back btn btn--primary btn--radius btn--shadow btn--big"
-      @click="showPageFN('Login')"
-    >Chci účet</button>
+      <input class="registration-content__input" type="text" placeholder="Uživatelské jméno">
+      <select class="registration-content__select">
+        <option value="">Věk</option>
+        <option value="18">18 let</option>
+        <option value="19">19 let</option>
+        <option value="20">20 let</option>
+      </select>
+      <input class="registration-content__input" type="text" placeholder="Město">
+      <input class="registration-content__input" type="password" placeholder="Vaše heslo">
+      <input class="registration-content__input" type="password" placeholder="Znovu heslo">
+      <button
+        type="button"
+        class="btn btn--primary btn--radius btn--shadow btn--big"
+        @click="goNextFN('Profil', selectedComponents)"
+      >Chci se registrovat</button>
+    </form>
   </div>
 </template>
 
@@ -28,28 +36,11 @@
 export default {
   name: "Registration",
   props: {
-    selectedComponent: String,
-    showPageFN: Function
+    selectedComponents: String,
+    goNextFN: Function
   },
   data() {
-    return {
-      steps: [
-        {
-          stepImg: "../images/step1.png",
-          stepTitle: "Create account",
-          stepDescription:
-            "Signing up is easy, it will take just a minute and then you are ready to receive gifts",
-          stepLink: true
-        },
-        {
-          stepImg: "../images/step2.png",
-          stepTitle: "Share your life",
-          stepDescription:
-            "Set prices and start chat with people, post pictures & videos, make calls. Everything you",
-          stepLink: false
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>
