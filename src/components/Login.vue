@@ -5,7 +5,7 @@
       <p class="login-content__title">Seznamte se s novými přáteli</p>
       <input class="login-content__input" type="text" placeholder="Uživatelské jméno">
       <input class="login-content__input" type="password" placeholder="Heslo">
-      <button @click="goNextFN('Profil', selectedComponents)" type="button" class="btn btn--primary btn--radius btn--shadow btn--big">Přihlásit se</button>
+      <button @click="goNextFN('Profil', selectedComponent)" type="button" class="btn btn--primary btn--radius btn--shadow btn--big">Přihlásit se</button>
       <p class="login-content__description">Nemáte ještě účet?
         <a href="#" class="login-content__link">Zaregistrujte ještě dnes!</a>
       </p>
@@ -17,7 +17,7 @@
 export default {
   name: "Login",
   props: {
-    selectedComponents: String,
+    selectedComponent: String,
     goNextFN: Function
   },
   data() {
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/_login.scss";
+@import "../assets/scss/pages/_login.scss";
 </style>
 
 

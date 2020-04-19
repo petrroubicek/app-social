@@ -1,4 +1,4 @@
-@import "mixins.scss", "variables.scss";
+@import "../config/mixins.scss", "../config/variables.scss";
 
 .registration-content {
   display: flex;
@@ -11,13 +11,13 @@
     width: 100%;
   }
   input[type='radio']:checked + &__sex {
-    color: $main-color;
+    color: var(--main-color);
   }
   &__description {
     display: inline-block;
     margin: 0px;
     width: 100%;
-    color: #333;
+    color: var(--font-color);
     font-size: 16px;
     text-align: center;
     line-height: 1.5;
@@ -28,7 +28,7 @@
     margin: 0px;
     padding: 20px;
     width: calc(50% - 40px);
-    color: $minor-color;
+    color: var(--minor-color);
     font-size: 50px;
     cursor: pointer;
     transition: 0.4s all;
@@ -56,6 +56,6 @@
   }
   &__link {
     margin: 10px 0px 0px;
-    color: $main-color;
+    color: var(--main-color);
   }
 }

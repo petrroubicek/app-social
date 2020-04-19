@@ -11,10 +11,10 @@ body {
 }
 
 .body--bg-gray {
-  background-image: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #fcfcfc,  #f5f5f5, #e5e5e5, #dedede, #d6d6d6);
+  background: var(--background-color);
 }
 .body--bg-purple {
-  background-image: linear-gradient(to bottom, lighten($main-color, 10%), lighten($main-color, 5%), lighten($main-color, 2%), $main-color, $main-color);
+  background: var(--background-color-intro);
 }
 .hidden {
   display: none !important;

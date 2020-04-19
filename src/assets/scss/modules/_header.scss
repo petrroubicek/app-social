@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import "../config/variables.scss";
 
 .header {
   display: flex;
@@ -6,7 +6,7 @@
   padding: 0px 15px;
   height: 60px;
   width: calc(100% - 30px);
-  background: $header-bg;
+  background: var(--background-color-head);
 
   &__title {
     margin: 0px;
@@ -15,7 +15,7 @@
     letter-spacing: 2px;
     font-size: 20px;
     text-transform: uppercase;
-    color: $header-color;
+    color: var(--font-color-head);
 
     &--without-l-icon {
       padding-left: 50px;

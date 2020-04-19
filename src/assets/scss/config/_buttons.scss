@@ -1,6 +1,7 @@
 // IMPORTS
 @import "variables", "mixins";
 
+
 // BUTTON VARIANT
 @mixin button-variant($color, $background, $border, $borderColor) {
   display: inline-block;
@@ -27,12 +28,12 @@
 
   &:focus {
     color: $color;
-    background-color: darken($background, 10%);
+    background-color: darken($background, 8%);
     border-color: darken($borderColor, 25%);
   }
   &:hover {
     color: $color;
-    background-color: darken($background, 10%);
+    background-color: darken($background, 8%);
     border-color: darken($borderColor, 12%);
     transition: 0.4s all;
   }

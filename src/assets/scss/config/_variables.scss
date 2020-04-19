@@ -1,0 +1,44 @@
+// VARIABLES
+
+// DEFAULT WIDTH
+$default-min-height: calc(100vh - 60px);
+$default-max-width: 375px;
+
+// COLORS
+$main-color: #A70174;
+$minor-color: #aaa;
+$shadow-color: #902071;
+
+
+:root {
+  --main-color: #A70174;
+  --minor-color: #aaa;
+  --shadow-color: #902071;
+  --logo-color: var(--main-color);
+  --font-color: #222;
+  --font-color-intro: #fff;
+  --font-color-head: #fff;
+  --background-color: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #fcfcfc, #f5f5f5, #e5e5e5, #dedede, #d6d6d6);
+  --background-color-intro: linear-gradient(to bottom, #da0197, #c00186, #b1017b, #A70174, #A70174);
+  --background-color-head: var(--main-color);
+}
+
+.dark-theme {
+  --main-color: #5a003d;
+  --minor-color: #aaa;
+  --shadow-color: #1f0015;
+  --logo-color: var(--main-color);
+  --font-color: #fff;
+  --font-color-intro: #fff;
+  --font-color-head: #fff;
+  --background-color: linear-gradient(to bottom, #3a0027, #3a0027, #3a0027, #3a0027, #3a0027, #3a0027, #230018, #1d0014, #1d0014, #170010);
+  --background-color-intro: linear-gradient(to bottom, #480031, #3a0027, #3a0027, #330023, #2b001e, #2b001e, #230018, #230018, #1d0014, #1d0014, #170010);
+  --background-color-head: var(--main-color);
+}
+
+// BREAKPOINT
+$breakpoint-mobile-xs: 374px;
+$breakpoint-height-xs: $default-min-height;
+
+// CONTENT
+$content-max-width: 414px;

@@ -1,4 +1,4 @@
-@import "mixins.scss", "variables.scss";
+@import "../config/mixins.scss", "../config/variables.scss";
 
 .profil {
   display: flex;
@@ -13,7 +13,7 @@
     height: auto;
     width: 20%;
     max-width: 120px;
-    color: $main-color;
+    color: var(--main-color);
     font-size: 40px;
     background: #ddd;
     border-radius: 100%;
@@ -26,6 +26,7 @@
   &__name {
     text-align: left;
     padding: 0px 0px 3px 15px;
+    color: var(--font-color);
     font-size: 20px;
     font-family: "SF UI Display Medium";
   }
@@ -92,6 +93,7 @@
 
   &__title {
     margin: 0px 0px 10px;
+    color: var(--font-color);
   }
   &__profiles {
     display: flex;

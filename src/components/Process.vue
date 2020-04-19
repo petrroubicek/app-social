@@ -29,7 +29,6 @@ export default {
   name: "Process",
   props: {
     selectedComponent: String,
-    lastSelectedComponent: Array,
     goNextFN: Function
   },
   data() {
@@ -63,7 +62,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/_process.scss";
+@import "../assets/scss/pages/_process.scss";
 </style>
 
 

@@ -1,41 +1,29 @@
 <template>
   <div
     id="app"
-    v-bind:class="{'body--bg-purple' : (currentSelectedPage == 'Home'), 'body--bg-gray' : (currentSelectedPage != 'Home')}"
+    v-bind:class="{'body--bg-purple' : (currentSelectedPage == 'Home'), 'body--bg-gray' : (currentSelectedPage != 'Home'), 'dark-theme' : darkMode}"
   >
     <!-- HEADER -->
-    <Header
-      v-if="currentSelectedPage != 'Home'"
-      :selectedComponent="currentSelectedPage"
-      :goBackFN="goBack"
-      :goNextFN="goNext"
-    ></Header>
+    <header>
+      <Header
+        v-if="currentSelectedPage != 'Home'"
+        :selectedComponent="currentSelectedPage"
+        :goBackFN="goBack"
+        :goNextFN="goNext"
+      ></Header>
+    </header>
 
     <!-- CONTENT -->
-    <div class="container">
+    <main class="container">
       <!-- HOMEPAGE -->
       <Home
         v-if="currentSelectedPage == 'Home'"
         :selectedComponent="currentSelectedPage"
         :goNextFN="goNext"
+        :onDarkMode="darkMode"
+        @update-dark-mode="updateDarkMode"
       ></Home>
-
-      <!-- POPUP --
-      <PopUp
-        v-if="currentSelectedPage == 'PopUp'"
-        :selectedComponent="currentSelectedPage"
-        :profileImg="popUp.profileImg"
-        :title="popUp.title"
-        :doubleRowTitle="popUp.doubleRowTitle"
-        :message="popUp.message"
-        :btnHorizontal="popUp.btnHorizontal"
-        :btn1Text="popUp.btn1Text"
-        :btn1Class="popUp.btn1Class"
-        :btn2Text="popUp.btn2Text"
-        :btn2Class="popUp.btn2Class"
-        :changePageFN="changePage"
-        :showPopUpFN="showPopUp"
-      ></PopUp>-->
+      
       <!-- PROCESS -->
       <Process
         v-if="currentSelectedPage == 'Process'"
@@ -63,14 +51,13 @@
         :selectedComponent="currentSelectedPage"
         :goNextFN="goNext"
       ></Profil>
-    </div>
+    </main>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
 import Home from "./components/Home";
-import PopUp from "./components/PopUp";
 import Process from "./components/Process";
 import Registration from "./components/Registration";
 import Login from "./components/Login";
@@ -80,58 +67,32 @@ export default {
   name: "App",
   data() {
     return {
+      darkMode: false,
       currentSelectedPage: "Home",
-      lastSelectedPages: [],
-      popUp: {
-        profileImg: "",
-        title: "",
-        doubleRowTitle: false,
-        description: "",
-        btnHorizontal: false,
-        btn1Text: "",
-        btn1Class: "",
-        btn2Text: "",
-        btn2Class: ""
-      }
+      lastSelectedPages: []
     };
   },
   methods: {
     goNext(nextPage, currentPage) {
       this.currentSelectedPage = nextPage;
       this.lastSelectedPages.push(currentPage);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     },
     goBack() {
       let lastIndexPage = this.lastSelectedPages.length - 1;
       this.currentSelectedPage = this.lastSelectedPages[lastIndexPage];
       this.lastSelectedPages.splice(-1, 1);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     },
-    showPopUp(
-      profileImg,
-      title,
-      doubleRowTitle,
-      message,
-      btnHorizontal,
-      btn1Text,
-      btn1Class,
-      btn2Text,
-      btn2Class
-    ) {
-      this.goNext("PopUp");
-      this.popUp.profileImg = profileImg;
-      this.popUp.title = title;
-      this.popUp.doubleRowTitle = doubleRowTitle;
-      this.popUp.message = message;
-      this.popUp.btnHorizontal = btnHorizontal;
-      this.popUp.btn1Text = btn1Text;
-      this.popUp.btn1Class = btn1Class;
-      this.popUp.btn2Text = btn2Text;
-      this.popUp.btn2Class = btn2Class;
+    updateDarkMode(mode) {
+      this.darkMode = mode;
     }
   },
   components: {
     Header,
     Home,
-    PopUp,
     Process,
     Registration,
     Login,
@@ -142,8 +103,6 @@ export default {
 
 <style lang="scss">
 @import "/public/_fonts.scss";
-@import "./assets/scss/_variables.scss";
-@import "./assets/scss/_mixins.scss";
-@import "./assets/scss/_buttons.scss";
-@import "./assets/scss/_layout.scss";
+@import "./assets/scss/config/_buttons.scss";
+@import "./assets/scss/config/_layout.scss";
 </style>
